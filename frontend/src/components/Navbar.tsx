@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { AiOutlineMenu } from "react-icons/ai"
 
 const Navbar = () => {
     return (
@@ -16,6 +17,7 @@ const Navbar = () => {
                         SignUp
                     </button>
                 </ul>
+                <AiOutlineMenu className="md:hidden text-accent" size={30} />
             </div>
         </div>
     )
