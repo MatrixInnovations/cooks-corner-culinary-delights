@@ -1,34 +1,40 @@
-import React from 'react'
-import Dash from './Dash'
+"use client"
+import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import CartIcon from './CartIcon'
+
+const links = [
+    { id: 1, title: "Homepage", url: "/" },
+    { id: 2, title: "Menu", url: "/menu" },
+    { id: 3, title: "Working Hours", url: "/" },
+    { id: 4, title: "Contact", url: "/" },
+
+]
+
 
 const Menu = () => {
+    const [open, setOpen] = useState(false)
+
+    //TEMPORARY
+    const user = false
     return (
-        <div className='container pt-40'>
-            <h2 className='text-6xl font-bold'>Our <span className='text-accent pt-2'>Menu</span></h2>
+        <div>
+            {!open ? (<Image src="/open.png" alt='' width={20} height={20} onClick={() => setOpen(true)} />
+            ) : (<Image src="/close.png" alt='' width={20} height={20} onClick={() => setOpen(false)} />)}
 
-            <p className='max-w-[550px] pt-10 text-gray-700 font-semibold'>
-                Explore a culinary journey with Cooks Corner, featuring signature starters like Roasted or Grilled Chicken, Roasted or Grilled Salmon, mouthwatering main courses such as Seared Ribeye, pasta specialties including lobster ravioli and penne alla vodka, Sides like RiGarlic Parmesan Mash and Vegies like Roasted Assorted Vegetables.
-            </p>
+            {open && <div className='bg-red-500 text-white absolute left-0 top-24 w-full h-[calc(100vh-6rem)] 
+            flex flex-col gap-8 items-center justify-center text-3xl z-10'>
+                {links.map(item => (
+                    <Link href={item.url} key={item.id} onClick={() => setOpen(false)}>{item.title}</Link>
+                ))}
+                {!user ? <Link href="/login" onClick={() => setOpen(false)}>Login</Link> :
+                    <Link href="/order" onClick={() => setOpen(false)}>Orders</Link>}
 
-            <Dash />
-
-            <div className='grid md:grid-cols-[1fr,37%,1fr] gap-16 mt-10'>
-                <div className='w-fit mx-auto self-end'>
-                    <Image
-                        className='w-[100%] max-w-[400px] sm:max-w-full h-auto shadow-2xl'
-                        src="/food1.jpg"
-                        width={300}
-                        height={600}
-                        alt="grid image"
-                    />
-                    <div className='space-y-4'>
-                        <Dash />
-                        <h2 className='font-medium text-xl'></h2>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
+                <Link href="/cart" onClick={() => setOpen(false)}>
+                    <CartIcon />
+                </Link>
+            </div>}
         </div>
     )
 }
