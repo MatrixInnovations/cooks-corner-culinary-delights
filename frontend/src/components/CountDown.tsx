@@ -15,37 +15,78 @@
 
 
 // WITHOUT A LIBRARY
-"use client"
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 
-const CountDown = () => {
+interface CountDownProps { }
 
-    let difference = +new Date(`12/25/2023`) - +new Date();
-    const [delay, setDelay] = useState(difference);
+interface CountDownState {
+    timeRemaining: {
+        days: number;
+        hours: number;
+        minutes: number;
+        seconds: number;
+    };
+}
 
-    const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const h = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((difference / 1000 / 60) % 60);
-    const s = Math.floor((difference / 1000) % 60);
+class CountDown extends Component<CountDownProps, CountDownState> {
+    private intervalId: NodeJS.Timeout | null = null;
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setDelay(delay - 1);
-        }, 1000);
+    constructor(props: CountDownProps) {
+        super(props);
 
-        if (delay === 0) {
-            clearInterval(timer);
-        }
-
-        return () => {
-            clearInterval(timer);
+        this.state = {
+            timeRemaining: this.calculateTimeRemaining(),
         };
-    });
-    return (
-        <span className="font-bold text-5xl text-yellow-300">
-            {d}:{h}:{m}:{s}
-        </span>
-    );
-};
+    }
+
+    componentDidMount() {
+        this.intervalId = setInterval(() => {
+            this.updateTimeRemaining();
+        }, 1000);
+    }
+
+    componentWillUnmount() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+        }
+    }
+
+    calculateTimeRemaining() {
+        const targetDate = new Date("12/25/2023");
+        const now = new Date();
+        const difference = targetDate.getTime() - now.getTime();
+
+        return {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)) as number,
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24) as number,
+            minutes: Math.floor((difference / (1000 * 60)) % 60) as number,
+            seconds: Math.floor((difference / 1000) % 60) as number,
+        };
+    }
+
+    updateTimeRemaining() {
+        const updatedTimeRemaining = this.calculateTimeRemaining();
+
+        if (updatedTimeRemaining.days <= 0 && updatedTimeRemaining.hours <= 0 && updatedTimeRemaining.minutes <= 0 && updatedTimeRemaining.seconds <= 0) {
+            if (this.intervalId) {
+                clearInterval(this.intervalId);
+            }
+        } else {
+            this.setState({
+                timeRemaining: updatedTimeRemaining,
+            });
+        }
+    }
+
+    render() {
+        const { days, hours, minutes, seconds } = this.state.timeRemaining;
+
+        return (
+            <span className="font-bold text-5xl text-yellow-300">
+                {days}:{hours}:{minutes}:{seconds}
+            </span>
+        );
+    }
+}
 
 export default CountDown;
