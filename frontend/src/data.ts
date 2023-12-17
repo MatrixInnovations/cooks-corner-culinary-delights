@@ -178,27 +178,6 @@ export const featuredProducts: Products = [
       },
     ],
   },
-  {
-    id: 9,
-    title: 'Hawaiian Teriyaki',
-    desc: 'Experience a taste of the tropics with a juicy beef patty glazed in tangy teriyaki sauce, topped with grilled pineapple, crispy bacon, and fresh lettuce, and all the classic fixings on a toasted bun.',
-    img: '/temporary/p9.png',
-    price: 29.9,
-    options: [
-      {
-        title: 'Small',
-        additionalPrice: 0,
-      },
-      {
-        title: 'Medium',
-        additionalPrice: 4,
-      },
-      {
-        title: 'Large',
-        additionalPrice: 6,
-      },
-    ],
-  },
 ];
 
 export const grilled: Products = [
@@ -286,13 +265,55 @@ export const grilled: Products = [
       },
     ],
   },
+  {
+    id: 5,
+    title: 'Rice Pilaf',
+    desc: 'Delight in the aromatic Rice Pilaf, a fragrant and savory side dish featuring fluffy basmati rice infused with a medley of herbs and spices, creating a perfect accompaniment to elevate your dining experience with its subtle complexity and satisfying texture.',
+    img: '/food5.jpg',
+    price: 26.9,
+    options: [
+      {
+        title: 'Small',
+        additionalPrice: 0,
+      },
+      {
+        title: 'Medium',
+        additionalPrice: 4,
+      },
+      {
+        title: 'Large',
+        additionalPrice: 6,
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: 'Meatballs',
+    desc: 'Satisfy your palate with the delightful Honey Pepper Turkey Meatballs, a savory and sweet fusion of lean turkey meatballs glazed in a delectable honey pepper sauce, offering a flavorful and appetizing twist to this mouthwatering dish.',
+    img: '/food4.jpg',
+    price: 26.9,
+    options: [
+      {
+        title: 'Small',
+        additionalPrice: 0,
+      },
+      {
+        title: 'Medium',
+        additionalPrice: 4,
+      },
+      {
+        title: 'Large',
+        additionalPrice: 6,
+      },
+    ],
+  },
 ];
 
 export const singleProduct: Product = {
   id: 1,
   title: 'Grilled Salmon',
   desc: 'Savor the exquisite Grilled Salmon, a succulent fillet cooked to perfection and accompanied by a bright lemon dill sauce, served with garlic-infused quinoa and sautéed asparagus for a delightful and wholesome dining experience.',
-  img: '/food1.jpg',
+  img: '/food1.png',
   price: 29.9,
   options: [
     {
@@ -323,25 +344,25 @@ export const menu: Menu = [
   {
     id: 1,
     slug: 'chicken',
-    title: 'Grilled Chicken',
-    desc: 'Enjoy the Grilled Chicken, a delicious dish featuring tender and succulent chicken and expertly grilled to perfection.',
-    img: '/grilledchicken.jpg',
-    color: 'white',
+    title: 'Chicken',
+    desc: 'A delicious dish featuring tender and succulent chicken and expertly grilled to perfection.',
+    img: '/menu1.png',
+    color: 'black',
   },
   {
     id: 2,
     slug: 'rice',
     title: 'Rice Pilaf',
-    desc: 'Rice Pilaf is a fragrant and savory side dish featuring fluffy basmati rice infused with a medley of herbs and spices.',
-    img: '/food5.jpg',
+    desc: 'Rice Pilaf is a fragrant and savory side dish featuring  rice infused with a medley of herbs and spices.',
+    img: '/menu2.png',
     color: 'black',
   },
   {
     id: 3,
     slug: 'vegetables',
-    title: 'Roasted Assorted vegetables',
-    desc: 'Roasted Assorted Vegetables is a colorful medley of seasonal veggies expertly roasted to perfection.',
-    img: '/food7.jpg',
-    color: 'white',
+    title: 'Vegetables',
+    desc: 'Roasted Vegetables is a colorful medley of seasonal veggies expertly roasted to perfection.',
+    img: '/menu3.png',
+    color: 'black',
   },
 ];
