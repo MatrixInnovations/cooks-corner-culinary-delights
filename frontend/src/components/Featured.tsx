@@ -4,9 +4,9 @@ import React from "react";
 
 const Featured = () => {
     return (
-        <div className="w-screen overflow-x-scroll text-red-500">
+        <div className="w-screen  overflow-x-scroll no-scrollbar text-red-500">
             {/* WRAPPER */}
-            <div className="w-max flex overflow-hidden">
+            <div className="w-max flex">
                 {/* SINGLE ITEM */}
                 {featuredProducts.map((item) => (
                     <div
@@ -15,8 +15,8 @@ const Featured = () => {
                     >
                         {/* IMAGE CONTAINER */}
                         {item.img && (
-                            <div className="relative flex-1 w-full hover:rotate-[60deg] transition-all duration-500">
-                                <Image src={item.img} alt="" fill className="object-contain" />
+                            <div className="relative  flex-1  w-[35%] h-[35%]  hover:rotate-[60deg] transition-all duration-500">
+                                <Image src={item.img} alt="img" fill className="object-contain" />
                             </div>
                         )}
                         {/* TEXT CONTAINER */}
