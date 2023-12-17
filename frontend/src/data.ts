@@ -178,6 +178,27 @@ export const featuredProducts: Products = [
       },
     ],
   },
+  {
+    id: 9,
+    title: 'Hawaiian Teriyaki',
+    desc: 'Experience a taste of the tropics with a juicy beef patty glazed in tangy teriyaki sauce, topped with grilled pineapple, crispy bacon, and fresh lettuce, and all the classic fixings on a toasted bun.',
+    img: '/temporary/p9.png',
+    price: 29.9,
+    options: [
+      {
+        title: 'Small',
+        additionalPrice: 0,
+      },
+      {
+        title: 'Medium',
+        additionalPrice: 4,
+      },
+      {
+        title: 'Large',
+        additionalPrice: 6,
+      },
+    ],
+  },
 ];
 
 export const grilled: Products = [
@@ -204,7 +225,7 @@ export const grilled: Products = [
   },
   {
     id: 2,
-    title: 'Parmesan Mashed',
+    title: 'Parmesan Garlic Mashed',
     desc: 'Indulge in the flavorful Parmesan Garlic Mashed Potatoes, a delectable side dish featuring creamy mashed potatoes infused with aromatic garlic and enriched with the distinctive taste of Parmesan cheese, offering a perfect complement to any main course.',
     img: '/food2.jpg',
     price: 20.9,
@@ -265,55 +286,13 @@ export const grilled: Products = [
       },
     ],
   },
-  {
-    id: 5,
-    title: 'Roasted Vegetables',
-    desc: 'Savor the vibrant flavors of Roasted Assorted Vegetables, a colorful medley of seasonal veggies expertly roasted to perfection, offering a delightful combination of textures and tastes that elevate this side dish into a flavorful and healthful culinary experience.',
-    img: '/food7.jpg',
-    price: 32.9,
-    options: [
-      {
-        title: 'Small',
-        additionalPrice: 0,
-      },
-      {
-        title: 'Medium',
-        additionalPrice: 4,
-      },
-      {
-        title: 'Large',
-        additionalPrice: 6,
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: 'Quinoa & brown rice',
-    desc: 'Experience a wholesome and nutritious blend with Quinoa and Brown Rice, a health-conscious side dish combining the nutty richness of brown rice with the protein-packed quinoa, expertly seasoned to perfection for a delightful and balanced addition to your culinary journey.',
-    img: '/food6.jpg',
-    price: 28.9,
-    options: [
-      {
-        title: 'Small',
-        additionalPrice: 0,
-      },
-      {
-        title: 'Medium',
-        additionalPrice: 4,
-      },
-      {
-        title: 'Large',
-        additionalPrice: 6,
-      },
-    ],
-  },
 ];
 
 export const singleProduct: Product = {
   id: 1,
   title: 'Grilled Salmon',
   desc: 'Savor the exquisite Grilled Salmon, a succulent fillet cooked to perfection and accompanied by a bright lemon dill sauce, served with garlic-infused quinoa and sautéed asparagus for a delightful and wholesome dining experience.',
-  img: '/food1.png',
+  img: '/food1.jpg',
   price: 29.9,
   options: [
     {
@@ -343,26 +322,26 @@ type Menu = {
 export const menu: Menu = [
   {
     id: 1,
-    slug: 'meal',
+    slug: 'chicken',
     title: 'Grilled Chicken',
-    desc: 'Delicious dish featuring tender and succulent chicken and expertly grilled to perfection.',
-    img: '/menu1.png',
-    color: 'black',
+    desc: 'Enjoy the Grilled Chicken, a delicious dish featuring tender and succulent chicken and expertly grilled to perfection.',
+    img: '/grilledchicken.jpg',
+    color: 'white',
   },
   {
     id: 2,
-    slug: 'meal',
+    slug: 'rice',
     title: 'Rice Pilaf',
-    desc: 'Fragrant and savory side dish featuring rice infused with a medley of herbs and spices.',
-    img: '/menu2.png',
+    desc: 'Rice Pilaf is a fragrant and savory side dish featuring fluffy basmati rice infused with a medley of herbs and spices.',
+    img: '/food5.jpg',
     color: 'black',
   },
   {
     id: 3,
-    slug: 'meal',
-    title: 'Roasted Vegies',
-    desc: 'A colorful medley of seasonal veggies expertly roasted to perfection.',
-    img: '/menu3.png',
-    color: 'black',
+    slug: 'vegetables',
+    title: 'Roasted Assorted vegetables',
+    desc: 'Roasted Assorted Vegetables is a colorful medley of seasonal veggies expertly roasted to perfection.',
+    img: '/food7.jpg',
+    color: 'white',
   },
 ];

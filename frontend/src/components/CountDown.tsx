@@ -15,6 +15,8 @@
 
 
 // WITHOUT A LIBRARY
+"use client"
+
 import React, { Component } from "react";
 
 interface CountDownProps { }
