@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+
+class Account {
+  constructor(
+    public id: string,
+    public userId: string,
+    public type: string,
+    public provider: string,
+    public providerAccountId: string,
+    public refresh_token: string | null,
+    public access_token: string | null,
+    public expires_at: number | null,
+    public token_type: string | null,
+    public scope: string | null,
+    public id_token: string | null,
+    public session_state: string | null,
+    public user: User
+  ) {}
+}
+
+class Session {
+  constructor(
+    public id: string,
+    public sessionToken: string,
+    public userId: string,
+    public expires: Date,
+    public user: User
+  ) {}
+}
+
+class User {
+  constructor(
+    public id: string,
+    public name: string | null,
+    public email: string | null,
+    public emailVerified: Date | null,
+    public image: string | null,
+    public isAdmin: boolean,
+    public accounts: Account[],
+    public sessions: Session[],
+    public orders: Order[]
+  ) {}
+}
+
+class VerificationToken {
+  constructor(
+    public identifier: string,
+    public token: string,
+    public expires: Date
+  ) {}
+}
+
+class Category {
+  constructor(
+    public id: string,
+    public createdAt: Date,
+    public title: string,
+    public desc: string,
+    public color: string,
+    public img: string,
+    public slug: string,
+    public products: Product[]
+  ) {}
+}
+
+class Product {
+  constructor(
+    public id: string,
+    public createdAt: Date,
+    public title: string,
+    public desc: string,
+    public img: string | null,
+    public price: number,
+    public isFeatured: boolean,
+    public options: any[],
+    public category: Category,
+    public catSlug: string
+  ) {}
+}
+
+class Order {
+  constructor(
+    public id: string,
+    public createdAt: Date,
+    public price: number,
+    public products: any[],
+    public status: string,
+    public intent_id: string | null,
+    public user: User,
+    public userEmail: string
+  ) {}
+}
